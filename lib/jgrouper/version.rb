@@ -1,3 +1,3 @@
-module Jgrouper
-  VERSION = "0.0.1"
+class JGrouper
+  VERSION = '0.0.1'
 end
