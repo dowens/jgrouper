@@ -1,16 +1,6 @@
 require 'jgrouper/version'
 require 'java'
 
-#
-# TODO Find Root Stem
-# TODO Document
-# TODO Release v0.0.1
-# TODO Basic stem operations
-# TODO Release v0.0.2
-# TODO Basic group operations
-# TODO Release v0.0.3
-# TODO Tests!
-#
 
 class JGrouper
 
@@ -27,12 +17,41 @@ class JGrouper
     $CLASSPATH << File.join( path, 'dist', 'lib', 'grouper.jar' )
 
     %w( edu.internet2.middleware.subject.SubjectNotFoundException
+        edu.internet2.middleware.grouper.GrouperSession
         edu.internet2.middleware.grouper.SubjectFinder
+        edu.internet2.middleware.grouper.StemFinder
     ).each { |klass| include_class klass }
   end
 
 end
 
+
+# TODO DRY w/ ::Subject
+class JGrouper::Stem
+
+  def initialize(stem)
+    @stem = stem
+    yield self if block_given?
+    self
+  end
+
+  def self.root_stem
+    stem = self.new StemFinder.findRootStem( GrouperSession.startRootSession ) # XXX How to handle sessions?
+    yield stem if block_given?
+    stem
+  end
+
+  def to_s
+    %w( name display_name uuid ).collect { |k| "#{k}=#{ self.send(k) }" }.join(' | ') 
+  end
+
+  def uuid;         @stem.getUuid;        end
+  def name;         @stem.getName;        end
+  def display_name; @stem.getDisplayName; end
+end
+
+
+# TODO DRY w/ ::Stem
 class JGrouper::Subject
 
   def initialize(subject)
@@ -42,13 +61,13 @@ class JGrouper::Subject
   end
 
   def self.root_subject
-    s = self.new SubjectFinder.findRootSubject
-    yield s if block_given?
-    s
+    subj = self.new SubjectFinder.findRootSubject
+    yield subj if block_given?
+    subj
   end
 
   def to_s
-    "id=%s | type=%s | name=%s | source=%s" % [ id, name, type, source ]
+    %w( id name type source ).collect { |k| "#{k}=#{ self.send(k) }" }.join(' | ')
   end
 
   def id;     @subject.getId;    end
@@ -62,5 +81,6 @@ end
 if __FILE__ == $0
   JGrouper.home ENV['GROUPER_HOME'] if ENV['GROUPER_HOME']
   JGrouper::Subject.root_subject { |subject| puts "root_subject => #{subject}" }
+  JGrouper::Stem.root_stem       { |stem| puts "root_stem => #{stem}" }
 end
 
