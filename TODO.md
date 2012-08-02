@@ -3,6 +3,7 @@ JGrouper To Do
 
 JGrouper v0.0.2
 ---------------
+* Test Grouper API integration w/ either Mocha (probably) or FlexMock
 * Add child stem
 * Get child stems
 * Delete child stem
