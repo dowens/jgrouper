@@ -1,15 +1,75 @@
-require 'jgrouper/version'
 require 'java'
+require 'jgrouper/stem'
+require 'jgrouper/subject'
+require 'jgrouper/version'
 
 
-class JGrouper
+#
+# = JGrouper - JRuby wrapper around the Internet2 Grouper API
+#
+# == Usage
+#
+#   require 'jgrouper'
+#
+#   # Set path to your Grouper API installation
+#   JGrouper.home = '/path/to/your/grouper/api/installation/directory'
+#
+#   # Find root subject
+#   JGrouper::Subject.root_subject do |subject|
+#     subject.id     # Subject identifier
+#     subject.name   # Subject name
+#     subject.source # Subject source identifier
+#     subject.type   # Subject type name
+#   end
+#
+#   # Find root stem
+#   JGrouper::Stem.root_stem do |stem|
+#     stem.display_name # Stem display name
+#     stem.name         # Stem name
+#     stem.uuid         # Stem UUID
+#   end
+#
+# == Installation
+#
+# Add this line to your application's Gemfile:
+#
+#   gem 'jgrouper'
+#
+# And then execute:
+#
+#    $ bundle
+#
+# Or install it yourself as:
+#
+#    $ gem install jgrouper
+#
+# == Contributing
+#
+# 1. Fork it
+# 2. Create your feature branch (+git checkout -b my-new-feature+)
+# 3. Commit your changes (+git commit -am 'Added some feature'+)
+# 4. Push to the branch (+git push origin my-new-feature+)
+# 5. Create new Pull Request
+#
+# == Author
+#
+# blair christensen. <mailto:blair.christensen@gmail.com>
+#
+# == Home Page
+#
+# https://github.com/blairc/jgrouper
+#
+# == See Also
+#
+# http://grouper.internet2.edu
+#
+module JGrouper
 
-  def self.home(path); self.new path; end
-
-  private
-
-  # XXX Better, please.
-  def initialize(path)
+  #
+  # Initialize Grouper API.
+  #
+  def self.home(path)
+    # TODO This could/should be so much better.
     [ "#{path}/lib/grouper/", "#{path}/lib/jdbcSamples" ].each do |dir|
       Dir[ "#{dir}/*.jar" ].each { |jar| $CLASSPATH << jar } 
     end
@@ -26,58 +86,7 @@ class JGrouper
 end
 
 
-# TODO DRY w/ ::Subject
-class JGrouper::Stem
-
-  def initialize(stem)
-    @stem = stem
-    yield self if block_given?
-    self
-  end
-
-  def self.root_stem
-    stem = self.new StemFinder.findRootStem( GrouperSession.startRootSession ) # XXX How to handle sessions?
-    yield stem if block_given?
-    stem
-  end
-
-  def to_s
-    %w( name display_name uuid ).collect { |k| "#{k}=#{ self.send(k) }" }.join(' | ') 
-  end
-
-  def uuid;         @stem.getUuid;        end
-  def name;         @stem.getName;        end
-  def display_name; @stem.getDisplayName; end
-end
-
-
-# TODO DRY w/ ::Stem
-class JGrouper::Subject
-
-  def initialize(subject)
-    @subject = subject
-    yield self if block_given?
-    self
-  end
-
-  def self.root_subject
-    subj = self.new SubjectFinder.findRootSubject
-    yield subj if block_given?
-    subj
-  end
-
-  def to_s
-    %w( id name type source ).collect { |k| "#{k}=#{ self.send(k) }" }.join(' | ')
-  end
-
-  def id;     @subject.getId;    end
-  def name;   @subject.getName;  end
-  def source; @subject.sourceId; end
-  def type;   @subject.typeName; end
-
-end
-
-
+# XXX Extract! Remove! Whatever!
 if __FILE__ == $0
   JGrouper.home ENV['GROUPER_HOME'] if ENV['GROUPER_HOME']
   JGrouper::Subject.root_subject { |subject| puts "root_subject => #{subject}" }
