@@ -1,11 +1,6 @@
 JGrouper To Do
 ==============
 
-JGrouper v0.0.1
----------------
-* Document
-* Release v0.0.1
-
 JGrouper v0.0.2
 ---------------
 * Add child stem
