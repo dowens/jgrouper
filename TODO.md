@@ -9,6 +9,7 @@ JGrouper v0.0.2
 * Grant stem privileges
 * Get stem privileges
 * Revoke stem privileges
+* Create command line executable (and remove embedded code from `lib/jgrouper.rb`)
 * Document
 * Release v0.0.2
 
