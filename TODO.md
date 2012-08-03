@@ -3,7 +3,6 @@ JGrouper To Do
 
 JGrouper v0.0.2
 ---------------
-* Test Grouper API integration w/ either Mocha (probably) or FlexMock
 * Add child stem
 * Get child stems
 * Delete child stem
@@ -31,4 +30,7 @@ Future
 ------
 * Add privilege to stem and all children
 * Add privilege to all groups beneath a stem
+* JGrouper::TestCase
+* JGrouper::Subject::TestCase
+* JGrouper::Subject::TestCase
 

@@ -11,6 +11,7 @@ doc/
 html/
 lib/bundler/man
 logs/
+out.txt
 pkg
 rdoc
 spec/reports
