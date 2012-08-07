@@ -61,7 +61,7 @@ require 'jgrouper/version'
 #
 # == See Also
 #
-# http://grouper.internet2.edu
+# https://github.com/blairc/jgrouper-server, http://grouper.internet2.edu
 #
 module JGrouper
 
