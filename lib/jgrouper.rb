@@ -2,6 +2,7 @@ require 'java'
 require 'jgrouper/stem'
 require 'jgrouper/subject'
 require 'jgrouper/version'
+require 'json'
 
 
 #
@@ -90,6 +91,6 @@ end
 if __FILE__ == $0
   JGrouper.home ENV['GROUPER_HOME'] if ENV['GROUPER_HOME']
   JGrouper::Subject.root_subject { |subject| puts "root_subject => #{subject}" }
-  JGrouper::Stem.root_stem       { |stem| puts "root_stem => #{stem}" }
+  JGrouper::Stem.root_stem       { |stem|    puts "root_stem => #{stem}"       }
 end
 
