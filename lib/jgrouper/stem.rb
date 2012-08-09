@@ -1,4 +1,3 @@
-
 module JGrouper # :nodoc:
   #
   # = JGrouper::Stem - A Grouper stem
@@ -14,7 +13,7 @@ module JGrouper # :nodoc:
     end
 
     #
-    # Generate stem instance from JSON by calling +JSON.parse(json_string)+
+    # Generate JGrouper::Stem instance from JSON by calling +JSON.parse(json_string)+
     # 
     def self.json_create(json)
       new do |stem|
@@ -36,7 +35,7 @@ module JGrouper # :nodoc:
     end
 
     #
-    # Return JSON representation of stem.
+    # Return JSON representation of JGrouper::Stem instance.
     #
     def to_json
       {
@@ -48,7 +47,7 @@ module JGrouper # :nodoc:
     end
 
     #
-    # Return string representation of stem.
+    # Return String representation of JGrouper::Stem instance.
     #
     def to_s
       %w( name display_name uuid ).collect { |k| "#{k}=#{ self.send(k) }" }.join(' | ') 

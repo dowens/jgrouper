@@ -4,10 +4,24 @@ module JGrouper #: :nodoc:
   #
   class Subject
 
-    def initialize(subject)
-      @subject = subject
+    attr_accessor :id, :name, :source, :type
+
+    def initialize
+      @grouper_subject = nil
       yield self if block_given?
       self
+    end
+
+    #
+    # Generate JGrouper::Subject instance from JSON by calling +JSON.parse(json_string)+
+    # 
+    def self.json_create(json)
+      new do |subject|
+        subject.id     = json['id']
+        subject.name   = json['name']
+        subject.source = json['source']
+        subject.type   = json['type']
+      end
     end
 
     #
@@ -16,31 +30,44 @@ module JGrouper #: :nodoc:
     #   root_subject = JGrouper::Subject.root_subject
     #
     def self.root_subject
-      subj = self.new SubjectFinder.findRootSubject
-      yield subj if block_given?
-      subj
+      subject = from_grouper_subject SubjectFinder.findRootSubject
+      yield subject if block_given?
+      subject
     end
 
+    #
+    # Return JSON representation of JGrouper::Subject instance.
+    #
+    def to_json
+      { 
+        :json_class => self.class.name,
+        :id         => self.id,
+        :name       => self.name,
+        :source     => self.source,
+        :type       => self.type
+      }.to_json
+    end
+
+    #
+    # Return String representation of JGrouper::Subject instance.
+    #
     def to_s
       %w( id name type source ).collect { |k| "#{k}=#{ self.send(k) }" }.join(' | ')
     end
 
-    #
-    # Subject identifier getter.
-    #
-    def id; @subject.getId; end
-    #
-    # Subject name getter.
-    #
-    def name; @subject.getName; end
-    #
-    # Subject source identifier getter.
-    #
-    def source; @subject.sourceId; end
-    #
-    # Subject type name getter.
-    #
-    def type; @subject.typeName; end
+
+    private
+
+    def self.from_grouper_subject(grouper_subject)
+      new do |subject|
+        subject.instance_variable_set :@grouper_subject, grouper_subject # XXX Is this even needed?
+
+        subject.id     = grouper_subject.getId
+        subject.name   = grouper_subject.getName
+        subject.source = grouper_subject.sourceId
+        subject.type   = grouper_subject.typeName
+      end
+    end
 
   end
 end

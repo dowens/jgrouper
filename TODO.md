@@ -3,7 +3,6 @@ JGrouper To Do
 
 JGrouper v0.0.2
 ---------------
-* Implement *JGrouper::Subject#to_json* and *JGrouper::Subject.json_generate*
 * Implement *JGrouper::GroupType.create(name)* (using *edu.internet2.middleware.grouper.GroupType.createType(GrouperSession, name)*)
 * Implement *JGrouper::GroupType#name()* (using *edu.internet2.middleware.grouper.GroupType#getName()*)
 * Implement *JGrouper::GroupType#uuid()* (using *edu.internet2.middleware.grouper.GroupType#getUuid()*)
