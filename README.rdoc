@@ -22,6 +22,12 @@
     stem.uuid         # Stem UUID
   end
 
+  # Create group type
+  JGrouper::GroupType.create(name) do |group_type|
+    group_type.name # Group type name
+    group_type.uuid # Group type uuid
+  end
+
 == Installation
 
 Add this line to your application's Gemfile:

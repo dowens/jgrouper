@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 require_relative 'helper'
-require 'ostruct'
 
 
 # TODO JGrouper::Subject::TestCase
@@ -22,7 +21,7 @@ class TestSubject < Test::Unit::TestCase
 
 
   def test_mocked_find_root_subject
-    Java::EduInternet2MiddlewareGrouper.SubjectFinder.expects(:findRootSubject).returns @root
+    Java::EduInternet2MiddlewareGrouper::SubjectFinder.expects(:findRootSubject).returns @root
     JGrouper::Subject.root_subject do |subject|
       assert_not_nil subject
       assert         subject.kind_of? JGrouper::Subject
@@ -34,7 +33,7 @@ class TestSubject < Test::Unit::TestCase
   end
 
   def test_mocked_subject_to_json
-    Java::EduInternet2MiddlewareGrouper.SubjectFinder.expects(:findRootSubject).returns @root
+    Java::EduInternet2MiddlewareGrouper::SubjectFinder.expects(:findRootSubject).returns @root
     assert_equal @json, JGrouper::Subject.root_subject.to_json
   end
 

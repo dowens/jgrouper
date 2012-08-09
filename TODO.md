@@ -3,12 +3,9 @@ JGrouper To Do
 
 JGrouper v0.0.2
 ---------------
-* Implement *JGrouper::GroupType.create(name)* (using *edu.internet2.middleware.grouper.GroupType.createType(GrouperSession, name)*)
-* Implement *JGrouper::GroupType#name()* (using *edu.internet2.middleware.grouper.GroupType#getName()*)
-* Implement *JGrouper::GroupType#uuid()* (using *edu.internet2.middleware.grouper.GroupType#getUuid()*)
 * Implement *JGrouper::GroupType.find* (using *edu.internet2.middleware.grouper.GroupTypeFinder.findAll()*)
 * Implement *JGrouper::GroupType.find(name)* (using *edu.internet2.middleware.grouper.GroupTypeFinder.find(name, bool)*)
-* Implement *JGrouper::GroupType#to_s()* (by not actually implementing it)
+* Implement *JGrouper::GroupType#delete* (using *edu.internet2.middleware.grouper.GroupType#delete(GrouperSession)*)
 
 
 JGrouper v0.0.3

@@ -1,8 +1,10 @@
 require 'java'
-require 'jgrouper/stem'
-require 'jgrouper/subject'
-require 'jgrouper/version'
 require 'json'
+
+require_relative 'jgrouper/group_type'
+require_relative 'jgrouper/stem'
+require_relative 'jgrouper/subject'
+require_relative 'jgrouper/version'
 
 
 #
@@ -28,6 +30,12 @@ require 'json'
 #     stem.display_name # Stem display name
 #     stem.name         # Stem name
 #     stem.uuid         # Stem UUID
+#   end
+#
+#   # Create group type
+#   JGrouper::GroupType.create(name) do |group_type|
+#     group_type.name # Group type name
+#     group_type.uuid # Group type uuid
 #   end
 #
 # == Installation
@@ -77,6 +85,10 @@ module JGrouper
     $CLASSPATH << File.join( path, 'conf' )
     $CLASSPATH << File.join( path, 'dist', 'lib', 'grouper.jar' )
 
+    # TODO Can I eliminate these if I refer to everything by full path?
+    #      Or maybe something like:
+    #        include_class 'java.lang.String' { |package, name| 'JString' }
+    #      Test the above w/ GroupType?
     %w( edu.internet2.middleware.subject.SubjectNotFoundException
         edu.internet2.middleware.grouper.GrouperSession
         edu.internet2.middleware.grouper.SubjectFinder

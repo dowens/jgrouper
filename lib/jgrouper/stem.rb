@@ -29,7 +29,7 @@ module JGrouper # :nodoc:
     #   root_stem = JGrouper::Stem.root_stem
     #
     def self.root_stem
-      stem = from_grouper_stem StemFinder.findRootStem( GrouperSession.startRootSession ) # XXX How to handle sessions?
+      stem = from_grouper StemFinder.findRootStem( GrouperSession.startRootSession ) # XXX How to handle sessions?
       yield stem if block_given?
       stem
     end
@@ -56,13 +56,13 @@ module JGrouper # :nodoc:
 
     private
 
-    def self.from_grouper_stem(grouper_stem)
+    def self.from_grouper(grouper)
       new do |stem|
-        stem.instance_variable_set :@grouper_stem, grouper_stem # XXX Is this even needed?
+        stem.instance_variable_set :@grouper_stem, grouper # XXX Is this even needed?
 
-        stem.display_name = grouper_stem.getDisplayName
-        stem.name         = grouper_stem.getName
-        stem.uuid         = grouper_stem.getUuid
+        stem.display_name = grouper.getDisplayName
+        stem.name         = grouper.getName
+        stem.uuid         = grouper.getUuid
       end
     end
 

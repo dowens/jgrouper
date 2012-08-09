@@ -30,7 +30,7 @@ module JGrouper #: :nodoc:
     #   root_subject = JGrouper::Subject.root_subject
     #
     def self.root_subject
-      subject = from_grouper_subject SubjectFinder.findRootSubject
+      subject = from_grouper SubjectFinder.findRootSubject
       yield subject if block_given?
       subject
     end
@@ -58,14 +58,14 @@ module JGrouper #: :nodoc:
 
     private
 
-    def self.from_grouper_subject(grouper_subject)
+    def self.from_grouper(grouper)
       new do |subject|
-        subject.instance_variable_set :@grouper_subject, grouper_subject # XXX Is this even needed?
+        subject.instance_variable_set :@grouper_subject, grouper # XXX Is this even needed?
 
-        subject.id     = grouper_subject.getId
-        subject.name   = grouper_subject.getName
-        subject.source = grouper_subject.sourceId
-        subject.type   = grouper_subject.typeName
+        subject.id     = grouper.getId
+        subject.name   = grouper.getName
+        subject.source = grouper.sourceId
+        subject.type   = grouper.typeName
       end
     end
 

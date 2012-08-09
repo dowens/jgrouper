@@ -2,10 +2,11 @@
 
 # TODO JGrouper::TestCase
 
-require_relative '../lib/jgrouper'
-
 require 'test/unit'
 require 'mocha'
+require 'ostruct'
+
+require_relative '../lib/jgrouper'
 
 require 'simplecov'
 SimpleCov.start
