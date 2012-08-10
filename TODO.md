@@ -4,7 +4,6 @@ JGrouper To Do
 JGrouper v0.0.2
 ---------------
 * Implement *JGrouper::GroupType.find* (using *edu.internet2.middleware.grouper.GroupTypeFinder.findAll()*)
-* Implement *JGrouper::GroupType.find(name)* (using *edu.internet2.middleware.grouper.GroupTypeFinder.find(name, bool)*)
 * Implement *JGrouper::GroupType#delete* (using *edu.internet2.middleware.grouper.GroupType#delete(GrouperSession)*)
 
 

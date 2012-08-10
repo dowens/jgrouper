@@ -24,6 +24,15 @@ module JGrouper # :nodoc:
     end
 
     #
+    # Find a group type by name.
+    #
+    def self.find(name)
+      group_type = from_grouper Java::EduInternet2MiddlewareGrouper::GroupTypeFinder.find(name, false)
+      yield group_type if block_given?
+      group_type
+    end
+
+    #
     # Generate JGrouper::GroupType instance from JSON by calling +JSON.parse(json_string)+
     # 
     def self.json_create(json)
@@ -55,6 +64,7 @@ module JGrouper # :nodoc:
     private
 
     def self.from_grouper(grouper)
+      return nil if grouper.nil?
       new do |group_type|
         group_type.instance_variable_set :@grouper_group_type, grouper # XXX Is this even needed?
 
