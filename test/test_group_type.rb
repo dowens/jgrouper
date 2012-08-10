@@ -41,6 +41,21 @@ class TestGroupType < Test::Unit::TestCase
     assert_equal   'some-fake-uuid', group_type.uuid
   end
 
+  def test_mocked_find_all
+    Java::EduInternet2MiddlewareGrouper::GroupTypeFinder.expects(:findAll).returns [ @type ]
+    group_types = JGrouper::GroupType.all do |group_type|
+      assert_not_nil group_type
+      assert         group_type.kind_of? JGrouper::GroupType
+      assert_equal   'jgrouper',       group_type.name
+      assert_equal   'some-fake-uuid', group_type.uuid
+    end
+    assert_not_nil group_types
+    assert_not_nil group_types.first
+    assert         group_types.first.kind_of? JGrouper::GroupType
+    assert_equal   'jgrouper',       group_types.first.name
+    assert_equal   'some-fake-uuid', group_types.first.uuid
+  end
+
   def test_mocked_find_by_name
     Java::EduInternet2MiddlewareGrouper::GroupTypeFinder.expects(:find).returns @type
     JGrouper::GroupType.find('base') do |group_type|

@@ -17,6 +17,8 @@ require_relative 'jgrouper/version'
 #   # Set path to your Grouper API installation
 #   JGrouper.home = '/path/to/your/grouper/api/installation/directory'
 #
+# === Subjects
+#
 #   # Find root subject
 #   JGrouper::Subject.root_subject do |subject|
 #     subject.id     # Subject identifier
@@ -25,6 +27,8 @@ require_relative 'jgrouper/version'
 #     subject.type   # Subject type name
 #   end
 #
+# === Stems
+#
 #   # Find root stem
 #   JGrouper::Stem.root_stem do |stem|
 #     stem.display_name # Stem display name
@@ -32,11 +36,21 @@ require_relative 'jgrouper/version'
 #     stem.uuid         # Stem UUID
 #   end
 #
+# === Group Types
+#
 #   # Create group type
 #   JGrouper::GroupType.create(name) do |group_type|
 #     group_type.name # Group type name
 #     group_type.uuid # Group type uuid
 #   end
+#
+#   # Find all group types
+#   group_types = JGrouper::GroupType.all do |group_type|
+#     ...
+#   end
+#
+#   # Find group type
+#   JGrouper::GroupType.find(name)
 #
 # == Installation
 #

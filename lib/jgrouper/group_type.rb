@@ -13,6 +13,15 @@ module JGrouper # :nodoc:
     end
 
     #
+    # Find all group types.
+    #
+    def self.all
+      group_types = Java::EduInternet2MiddlewareGrouper::GroupTypeFinder.findAll.collect { |gt| from_grouper gt }
+      group_types.each { |_| yield _ } if block_given?
+      group_types
+    end
+
+    #
     # Create group type.
     # 
     #     group_type = JGrouper::GroupType.create name
