@@ -71,5 +71,22 @@ class TestGroupType < Test::Unit::TestCase
     assert_nil JGrouper::GroupType.find('jgrouper')
   end
 
+  def test_mocked_delete
+    Java::EduInternet2MiddlewareGrouper::GrouperSession.expects(:startRootSession).returns true
+    Java::EduInternet2MiddlewareGrouper::GroupTypeFinder.expects(:find).returns @type
+    @type.expects(:delete).returns(nil)
+    assert JGrouper::GroupType.find('jgrouper').delete
+  end
+
+  def test_mocked_delete_failure
+    Java::EduInternet2MiddlewareGrouper::GrouperSession.expects(:startRootSession).returns true
+    Java::EduInternet2MiddlewareGrouper::GroupTypeFinder.expects(:find).returns @type
+    @type.expects(:delete).raises(Exception, 'Mocked Exception')
+
+    group_type = JGrouper::GroupType.find('jgrouper')
+    assert_equal false,              group_type.delete
+    assert_equal 'Mocked Exception', group_type.error.to_s
+  end
+
 end
 

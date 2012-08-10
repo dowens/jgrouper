@@ -52,6 +52,9 @@ require_relative 'jgrouper/version'
 #   # Find group type
 #   JGrouper::GroupType.find(name)
 #
+#   # Delete group type
+#   JGrouper::GroupType.find(name).delete
+#
 # == Installation
 #
 # Add this line to your application's Gemfile:

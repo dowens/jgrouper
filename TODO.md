@@ -1,11 +1,6 @@
 JGrouper To Do
 ==============
 
-JGrouper v0.0.2
----------------
-* Implement *JGrouper::GroupType#delete* (using *edu.internet2.middleware.grouper.GroupType#delete(GrouperSession)*)
-
-
 JGrouper v0.0.3
 ---------------
 * Implement *JGrouper::Subject.sources* (using *edu.internet2.middleware.subject.provider.SourceManager*)

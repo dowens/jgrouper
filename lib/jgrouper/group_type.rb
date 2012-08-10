@@ -5,6 +5,7 @@ module JGrouper # :nodoc:
   class GroupType
 
     attr_accessor :name, :uuid
+    attr_reader :error
 
     def initialize
       @grouper_group_type = nil
@@ -30,6 +31,19 @@ module JGrouper # :nodoc:
       group_type = from_grouper Java::EduInternet2MiddlewareGrouper::GroupType.createType( GrouperSession.startRootSession, name )
       yield group_type if block_given?
       group_type
+    end
+
+    #
+    # Delete group type.  Sets +error+ and returns +false+ on failure.
+    #
+    def delete
+      begin
+        @grouper_group_type.delete GrouperSession.startRootSession # XXX How to handle sessions?
+        return true
+      rescue Exception => e
+        @error = e
+      end
+      false
     end
 
     #
