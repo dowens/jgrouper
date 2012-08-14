@@ -13,6 +13,3 @@ JGrouper v0.0.1
 * Add *JGrouper::Subject.root_subject*
 * Add *JGrouper::Stem.root_stem*
 
-
-# vim: syntax=markdown
-

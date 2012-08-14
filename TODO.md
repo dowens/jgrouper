@@ -32,5 +32,3 @@ Future
 * JGrouper::Subject::TestCase
 * JGrouper::Subject::TestCase
 
-# vim: syntax=markdown textwidth=0
-
