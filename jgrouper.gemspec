@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = JGrouper::VERSION
 
   gem.add_dependency 'json'
+  gem.add_dependency 'pry'
 
   gem.add_development_dependency 'mocha'
   gem.add_development_dependency 'rake'

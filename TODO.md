@@ -3,7 +3,12 @@ JGrouper To Do
 
 JGrouper v0.0.3
 ---------------
-* Add *pry*-based command line executable 
+* Rename *JGrouper::Stem#root_stem* to *JGrouper::Stem#root*
+* Rename *JGrouper::Subject#root_subject* to *JGrouper::Subject#root*
+* Add *JGrouper::GroupType.delete(name)*
+* Add *JGrouper::Stem.find(name)*
+* Add *JGrouper::Group*
+* Add *JGrouper::Group.find(name)*
 
 
 Future
@@ -31,4 +36,8 @@ Future
 * JGrouper::TestCase
 * JGrouper::Subject::TestCase
 * JGrouper::Subject::TestCase
+* Make *JGrouper::Shell* startup less chatty
+* Extract *JGrouper::Shell* to own gem?
+* Add *gsh* compatibility commands to *JGrouper::Shell*?
+* Should *JGrouper::Shell* be able to run scripts?
 

@@ -1,6 +1,12 @@
 JGrouper History
 ================
 
+JGrouper v0.0.3
+---------------
+* Add *JGrouper::Shell*
+* Add *bin/jgrouper* interactive shell
+
+
 2012-08-10 JGrouper v0.0.2
 --------------------------
 * Add *JGrouper::GroupType*

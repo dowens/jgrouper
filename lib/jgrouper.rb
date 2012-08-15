@@ -87,7 +87,7 @@ require_relative 'jgrouper/version'
 #
 # == See Also
 #
-# https://github.com/blairc/jgrouper-server, http://grouper.internet2.edu
+# JGrouper::Shell, https://github.com/blairc/jgrouper-server, http://grouper.internet2.edu
 #
 module JGrouper
 
@@ -113,13 +113,5 @@ module JGrouper
     ).each { |klass| include_class klass }
   end
 
-end
-
-
-# XXX Extract! Remove! Whatever!
-if __FILE__ == $0
-  JGrouper.home ENV['GROUPER_HOME'] if ENV['GROUPER_HOME']
-  JGrouper::Subject.root_subject { |subject| puts "root_subject => #{subject}" }
-  JGrouper::Stem.root_stem       { |stem|    puts "root_stem => #{stem}"       }
 end
 
