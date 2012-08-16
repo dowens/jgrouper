@@ -8,6 +8,9 @@ JGrouper v0.0.3
 * Rename *JGrouper::Stem#root_stem* to *JGrouper::Stem#root*
 * Rename *JGrouper::Subject#root_subject* to *JGrouper::Subject#root*
 * Add *JGrouper::GroupType.delete(name)*
+* Add *JGrouper::Stem.create( name, display_name = nil )*
+* Add *JGrouper::Stem#add_stem( name, display_name = nil )*
+* Add *JGrouper::Stem.find(name)*
 
 
 2012-08-10 JGrouper v0.0.2

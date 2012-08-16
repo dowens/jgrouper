@@ -26,6 +26,15 @@
     stem.uuid         # Stem UUID
   end
 
+  # Find by name
+  stem = JGrouper::Stem.find(name) { |stem| ... }
+
+  # Create stem(s)
+  stem = JGrouper::Stem.create 'foo:bar:baz', 'Foo:Bar:Baz'
+
+  # Create child stem(s)
+  child = stem.create 'foo:bar:baz'
+
 === Group Types
 
   # Create group type

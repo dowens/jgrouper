@@ -3,16 +3,16 @@ JGrouper To Do
 
 JGrouper v0.0.3
 ---------------
-* Add *JGrouper::Stem.create( name, create_parents = true )*
-* Add *JGrouper::Stem#create( name, create_parents = true )*
-* Add *JGrouper::Stem.find(name)*
-* Add *JGrouper::Stem.find(uuid)*
+* Convert test "fixtures" to *FactoryGirl*
 * Add *JGrouper::Stem#delete( recurse = false )*
 * Add *JGrouper::Stem.delete( name, recurse = false )*
+* Add *JGrouper::Stem.find(uuid)*
 
 
 Future
 ------
+* Add *JGrouper::Stem.exists?(name)*
+* Add *JGrouper::Stem#root?(name)*
 * Add *JGrouper::Group*
 * Add *JGrouper::Group.find(name)*
 * Implement *JGrouper::Subject.sources* (using *edu.internet2.middleware.subject.provider.SourceManager*)
