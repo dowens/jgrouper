@@ -5,6 +5,8 @@ JGrouper v0.0.3
 ---------------
 * Add *JGrouper::Shell*
 * Add *bin/jgrouper* interactive shell
+* Rename *JGrouper::Stem#root_stem* to *JGrouper::Stem#root*
+* Rename *JGrouper::Subject#root_subject* to *JGrouper::Subject#root*
 
 
 2012-08-10 JGrouper v0.0.2

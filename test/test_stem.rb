@@ -21,7 +21,7 @@ class TestStem < Test::Unit::TestCase
   def test_mocked_find_root_stem
     Java::EduInternet2MiddlewareGrouper::GrouperSession.expects(:startRootSession).returns true
     Java::EduInternet2MiddlewareGrouper::StemFinder.expects(:findRootStem).returns @root
-    JGrouper::Stem.root_stem do |stem|
+    JGrouper::Stem.root do |stem|
       assert_not_nil stem
       assert         stem.kind_of? JGrouper::Stem
       assert_equal   '',               stem.display_name
@@ -33,7 +33,7 @@ class TestStem < Test::Unit::TestCase
   def test_mocked_stem_to_json
     Java::EduInternet2MiddlewareGrouper::GrouperSession.expects(:startRootSession).returns true
     Java::EduInternet2MiddlewareGrouper::StemFinder.expects(:findRootStem).returns @root
-    assert_equal @json, JGrouper::Stem.root_stem.to_json
+    assert_equal @json, JGrouper::Stem.root.to_json
   end
 
   def test_stem_from_json

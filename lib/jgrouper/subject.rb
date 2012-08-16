@@ -27,9 +27,9 @@ module JGrouper #: :nodoc:
     #
     # Return root subject.
     #
-    #   root_subject = JGrouper::Subject.root_subject
+    #   root_subject = JGrouper::Subject.root
     #
-    def self.root_subject
+    def self.root
       subject = from_grouper SubjectFinder.findRootSubject
       yield subject if block_given?
       subject

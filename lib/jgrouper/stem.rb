@@ -26,9 +26,9 @@ module JGrouper # :nodoc:
     #
     # Return root stem.
     #
-    #   root_stem = JGrouper::Stem.root_stem
+    #   root_stem = JGrouper::Stem.root
     #
-    def self.root_stem
+    def self.root
       stem = from_grouper StemFinder.findRootStem( GrouperSession.startRootSession ) # XXX How to handle sessions?
       yield stem if block_given?
       stem

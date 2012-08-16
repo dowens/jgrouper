@@ -22,7 +22,7 @@ class TestSubject < Test::Unit::TestCase
 
   def test_mocked_find_root_subject
     Java::EduInternet2MiddlewareGrouper::SubjectFinder.expects(:findRootSubject).returns @root
-    JGrouper::Subject.root_subject do |subject|
+    JGrouper::Subject.root do |subject|
       assert_not_nil subject
       assert         subject.kind_of? JGrouper::Subject
       assert_equal   'GrouperSystem',   subject.id 
@@ -34,7 +34,7 @@ class TestSubject < Test::Unit::TestCase
 
   def test_mocked_subject_to_json
     Java::EduInternet2MiddlewareGrouper::SubjectFinder.expects(:findRootSubject).returns @root
-    assert_equal @json, JGrouper::Subject.root_subject.to_json
+    assert_equal @json, JGrouper::Subject.root.to_json
   end
 
   def test_subject_from_json

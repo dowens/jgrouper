@@ -20,7 +20,7 @@ require_relative 'jgrouper/version'
 # === Subjects
 #
 #   # Find root subject
-#   JGrouper::Subject.root_subject do |subject|
+#   JGrouper::Subject.root do |subject|
 #     subject.id     # Subject identifier
 #     subject.name   # Subject name
 #     subject.source # Subject source identifier
@@ -30,7 +30,7 @@ require_relative 'jgrouper/version'
 # === Stems
 #
 #   # Find root stem
-#   JGrouper::Stem.root_stem do |stem|
+#   JGrouper::Stem.root do |stem|
 #     stem.display_name # Stem display name
 #     stem.name         # Stem name
 #     stem.uuid         # Stem UUID

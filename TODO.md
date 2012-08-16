@@ -3,16 +3,19 @@ JGrouper To Do
 
 JGrouper v0.0.3
 ---------------
-* Rename *JGrouper::Stem#root_stem* to *JGrouper::Stem#root*
-* Rename *JGrouper::Subject#root_subject* to *JGrouper::Subject#root*
 * Add *JGrouper::GroupType.delete(name)*
+* Add *JGrouper::Stem.create( name, create_parents = true )*
+* Add *JGrouper::Stem#create( name, create_parents = true )*
 * Add *JGrouper::Stem.find(name)*
-* Add *JGrouper::Group*
-* Add *JGrouper::Group.find(name)*
+* Add *JGrouper::Stem.find(uuid)*
+* Add *JGrouper::Stem#delete( recurse = false )*
+* Add *JGrouper::Stem.delete( name, recurse = false )*
 
 
 Future
 ------
+* Add *JGrouper::Group*
+* Add *JGrouper::Group.find(name)*
 * Implement *JGrouper::Subject.sources* (using *edu.internet2.middleware.subject.provider.SourceManager*)
 * Implement *JGrouper::Subject.source(id)* (using *edu.internet2.middleware.subject.provider.SourceManager*)
 * Implement *JGrouper::Subject::Source#to_json* (for "jgrouper-server")
