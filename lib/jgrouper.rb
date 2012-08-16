@@ -53,6 +53,8 @@ require_relative 'jgrouper/version'
 #   JGrouper::GroupType.find(name)
 #
 #   # Delete group type
+#   JGrouper::GroupType.delete(name)
+#   # ... or ...
 #   JGrouper::GroupType.find(name).delete
 #
 # == Installation

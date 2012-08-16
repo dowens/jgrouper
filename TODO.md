@@ -3,7 +3,6 @@ JGrouper To Do
 
 JGrouper v0.0.3
 ---------------
-* Add *JGrouper::GroupType.delete(name)*
 * Add *JGrouper::Stem.create( name, create_parents = true )*
 * Add *JGrouper::Stem#create( name, create_parents = true )*
 * Add *JGrouper::Stem.find(name)*

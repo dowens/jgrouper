@@ -16,6 +16,10 @@ module JGrouper # :nodoc:
     #
     # Find all group types.
     #
+    #    group_types = JGrouper::GroupType.all do |group_type|
+    #      ...
+    #    end
+    #
     def self.all
       group_types = Java::EduInternet2MiddlewareGrouper::GroupTypeFinder.findAll.collect { |gt| from_grouper gt }
       group_types.each { |_| yield _ } if block_given?
@@ -34,7 +38,20 @@ module JGrouper # :nodoc:
     end
 
     #
+    # Delete group type.  Returns +false+ on failure.
+    #
+    #    JGrouper::GroupType.delete(name)
+    #
+    def self.delete(name)
+      group_type = find(name)
+      return false if group_type.nil?
+      group_type.delete
+    end
+
+    #
     # Delete group type.  Sets +error+ and returns +false+ on failure.
+    #
+    #     group_type.delete
     #
     def delete
       begin
@@ -48,6 +65,8 @@ module JGrouper # :nodoc:
 
     #
     # Find a group type by name.
+    #
+    #    group_type = JGrouper::GroupType.find(name)
     #
     def self.find(name)
       group_type = from_grouper Java::EduInternet2MiddlewareGrouper::GroupTypeFinder.find(name, false)
