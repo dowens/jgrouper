@@ -1,8 +1,12 @@
 JGrouper History
 ================
 
-JGrouper v0.0.3
+JGrouper v0.0.4
 ---------------
+
+
+2012-08-17 JGrouper v0.0.3
+--------------------------
 * Add *JGrouper::Shell*
 * Add *bin/jgrouper* interactive shell
 * Rename *JGrouper::Stem#root_stem* to *JGrouper::Stem#root*
