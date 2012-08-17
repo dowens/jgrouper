@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'json'
   gem.add_dependency 'pry'
 
+  gem.add_development_dependency 'factory_girl', "~> 4.0"
   gem.add_development_dependency 'mocha'
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rdoc'

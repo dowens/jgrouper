@@ -7,6 +7,7 @@ require 'mocha'
 require 'ostruct'
 
 require_relative '../lib/jgrouper'
+require_relative 'factories'
 
 require 'simplecov'
 SimpleCov.start

@@ -11,6 +11,8 @@ JGrouper v0.0.3
 * Add *JGrouper::Stem.create( name, display_name = nil )*
 * Add *JGrouper::Stem#add_stem( name, display_name = nil )*
 * Add *JGrouper::Stem.find(name)*
+* Add *JGrouper::Subject::TestCase*
+* Add *JGrouper::GroupType::TestCase*
 
 
 2012-08-10 JGrouper v0.0.2
