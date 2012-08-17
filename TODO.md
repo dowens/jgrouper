@@ -4,14 +4,27 @@ JGrouper To Do
 JGrouper v0.0.3
 ---------------
 * Convert test "fixtures" to *FactoryGirl*
-* Add *JGrouper::Stem#delete( recurse = false )*
-* Add *JGrouper::Stem.delete( name, recurse = false )*
-* Add *JGrouper::Stem.find(uuid)*
+
+
+JGrouper v0.0.4
+---------------
+* Add *JGrouper::Group*
+* Add *JGrouper::Group.find(name)*
+* Add *JGrouper::Stem#add_group( name, display_name = nil )*
+* Add *JGrouper::Group.create( name, display_name = nil )*
+* Add *JGrouper::Group#types*
+* Add *JGrouper::Group#add_type*
+* Add *JGrouper::Group#members*
+* Add *JGrouper::Group#add_member(?)*
 
 
 Future
 ------
+* Add *JGrouper::Stem#delete( recurse = false )*
+* Add *JGrouper::Stem.delete( name, recurse = false )*
+* Add *JGrouper::Stem.find(uuid)*
 * Add *JGrouper::Stem.exists?(name)*
+* Add *JGrouper::Group.exists?(name)*
 * Add *JGrouper::Stem#root?(name)*
 * Add *JGrouper::Group*
 * Add *JGrouper::Group.find(name)*
