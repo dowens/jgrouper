@@ -13,6 +13,7 @@ JGrouper v0.0.3
 * Add *JGrouper::Stem.find(name)*
 * Add *JGrouper::Subject::TestCase*
 * Add *JGrouper::GroupType::TestCase*
+* Add *JGrouper::Stem::TestCase*
 
 
 2012-08-10 JGrouper v0.0.2

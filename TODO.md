@@ -1,11 +1,6 @@
 JGrouper To Do
 ==============
 
-JGrouper v0.0.3
----------------
-* Convert test "fixtures" to *FactoryGirl*
-
-
 JGrouper v0.0.4
 ---------------
 * Add *JGrouper::Group*
