@@ -3,18 +3,19 @@ JGrouper To Do
 
 JGrouper v0.0.4
 ---------------
-* Add *JGrouper::Group*
-* Add *JGrouper::Group.find(name)*
-* Add *JGrouper::Stem#add_group( name, display_name = nil )*
-* Add *JGrouper::Group.create( name, display_name = nil )*
 * Add *JGrouper::Group#types*
 * Add *JGrouper::Group#add_type*
-* Add *JGrouper::Group#members*
-* Add *JGrouper::Group#add_member(?)*
+* Add *JGrouper::Stem#children( recurse = false )*
+* Add *JGrouper::Stem#groups( recurse = false )*
+* Add *JGrouper::Stem#stems( recurse = false )*
 
 
 Future
 ------
+* Add *JGrouper::Stem#add_group( name, display_name = nil )*
+* Add *JGrouper::Group.create( name, display_name = nil )*
+* Add *JGrouper::Group#members*
+* Add *JGrouper::Group#add_member(?)*
 * Add *JGrouper::Stem#delete( recurse = false )*
 * Add *JGrouper::Stem.delete( name, recurse = false )*
 * Add *JGrouper::Stem.find(uuid)*

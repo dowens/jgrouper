@@ -35,6 +35,15 @@
   # Create child stem(s)
   child = stem.create 'foo:bar:baz'
 
+=== Groups
+
+  # Find by name
+  group = JGrouper::Group.find(name) do |group|
+    group.display_name # Group display name
+    group.name         # Group name
+    group.uuid         # Group UUID
+  end
+
 === Group Types
 
   # Create group type
@@ -44,9 +53,7 @@
   end
 
   # Find all group types
-  group_types = JGrouper::GroupType.all do |group_type|
-    ...
-  end
+  group_types = JGrouper::GroupType.all { |group_type| ... }
 
   # Find group type
   JGrouper::GroupType.find(name)

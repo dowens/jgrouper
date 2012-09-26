@@ -21,13 +21,19 @@ module JGrouper # :nodoc:
   #
   # Any JGrouper::Stem methods, such as:
   #
-  #   JGrouper::Shell:0> stem.root_stem
+  #   JGrouper::Shell:0> stem.root
+  #
+  # === Groups
+  #
+  # Any JGrouper::Group methods, such as:
+  #
+  #   JGrouper::Group:0> group.find 'name'
   #
   # === Subjects
   #
   # Any JGrouper::Subject methods, such as:
   #
-  #   JGrouper::Shell:0> subject.root_subject
+  #   JGrouper::Shell:0> subject.root
   #
   class Shell
 
@@ -54,6 +60,13 @@ module JGrouper # :nodoc:
                                proc { "> " }
                              ]
       end
+    end
+
+    #
+    # Access JGrouper::Group commands
+    #
+    def group
+      JGrouper::Group
     end
 
     #

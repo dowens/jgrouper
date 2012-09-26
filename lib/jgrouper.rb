@@ -1,6 +1,7 @@
 require 'java'
 require 'json'
 
+require_relative 'jgrouper/group'
 require_relative 'jgrouper/group_type'
 require_relative 'jgrouper/stem'
 require_relative 'jgrouper/subject'
@@ -45,6 +46,15 @@ require_relative 'jgrouper/version'
 #   # Create child stem(s)
 #   child = stem.create 'foo:bar:baz'
 #
+# === Groups
+#
+#   # Find by name
+#   group = JGrouper::Group.find(name) do |group|
+#     group.display_name # Group display name
+#     group.name         # Group name
+#     group.uuid         # Group UUID
+#   end
+#
 # === Group Types
 #
 #   # Create group type
@@ -54,9 +64,7 @@ require_relative 'jgrouper/version'
 #   end
 #
 #   # Find all group types
-#   group_types = JGrouper::GroupType.all do |group_type|
-#     ...
-#   end
+#   group_types = JGrouper::GroupType.all { |group_type| ... }
 #
 #   # Find group type
 #   JGrouper::GroupType.find(name)
@@ -119,6 +127,7 @@ module JGrouper
     #      Test the above w/ GroupType?
     %w( edu.internet2.middleware.subject.SubjectNotFoundException
         edu.internet2.middleware.grouper.GrouperSession
+        edu.internet2.middleware.grouper.GroupFinder
         edu.internet2.middleware.grouper.SubjectFinder
         edu.internet2.middleware.grouper.StemFinder
     ).each { |klass| include_class klass }
