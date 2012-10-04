@@ -1,8 +1,11 @@
 JGrouper History
 ================
 
-JGrouper v0.0.4
+JGrouper v0.0.5
 ---------------
+
+2012-10-04 JGrouper v0.0.4
+--------------------------
 * Add *JGrouper::Group*
 * Add *JGrouper::Group.find*
 * Add *JGrouper::Group* support to *JGrouper::Shell*
