@@ -1,9 +1,0 @@
-#!/usr/bin/env jruby
-
-# TODO Will this work post-installation?
-
-require_relative '../lib/jgrouper/shell'
-JGrouper::Shell.run!
-
-# vim: syntax=ruby
-

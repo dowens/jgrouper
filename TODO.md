@@ -47,8 +47,4 @@ Future
 * JGrouper::TestCase
 * JGrouper::Subject::TestCase
 * JGrouper::Subject::TestCase
-* Make *JGrouper::Shell* startup less chatty
-* Extract *JGrouper::Shell* to own gem?
-* Add *gsh* compatibility commands to *JGrouper::Shell*?
-* Should *JGrouper::Shell* be able to run scripts?
 

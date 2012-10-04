@@ -106,7 +106,7 @@ require_relative 'jgrouper/version'
 #
 # == See Also
 #
-# JGrouper::Shell, https://github.com/blairc/jgrouper-server, http://grouper.internet2.edu
+# JGrouper::Shell https://github.com/blairc/jgrouper-shell, JGrouper::Server https://github.com/blairc/jgrouper-server, http://grouper.internet2.edu
 #
 module JGrouper
 
