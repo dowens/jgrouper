@@ -13,53 +13,6 @@ module JGrouper # :nodoc:
       self
     end
 
-# XXX     #
-# XXX     # Create child stem (along with missing intermediaries).
-# XXX     #
-# XXX     #   # Create child stem 'foo'
-# XXX     #   child = stem.add_stem 'foo'
-# XXX     #
-# XXX     #   # Create child stem 'foo' with display name of 'Foo'
-# XXX     #   child = stem.add_stem 'foo', 'Foo'
-# XXX     #
-# XXX     #   # Create child stem 'foo:bar:baz' along with any missing intermediaries
-# XXX     #   child = stem.add_stem 'foo:bar:baz'
-# XXX     #
-# XXX     #
-# XXX     def add_stem( name, display_name = nil )
-# XXX       # TODO What if names.size != display_names.size?
-# XXX       names         = name.split ':'
-# XXX       display_names = display_name.nil? ? names.clone.split : display_name.split(':')
-# XXX 
-# XXX       name, display_name = names.shift, display_names.shift
-# XXX 
-# XXX       child = JGrouper::Stem.find self.name.empty? ? name : [ self.name, name ].join(':') # TODO Yuck
-# XXX       child = JGrouper::Stem.from_grouper @grouper_stem.addChildStem(name, display_name) if child.nil?
-# XXX 
-# XXX       # TODO What if child can't be created?
-# XXX       child = child.add_stem( names.join(':'), display_names.join(':') ) unless names.empty?
-# XXX       yield child if block_given?
-# XXX       child
-# XXX     end
-# XXX 
-# XXX     #
-# XXX     # Create stem (along with missing intermediaries).
-# XXX     #
-# XXX     #   # Create top-level 'foo' stem
-# XXX     #   stem = JGrouper::Stem.create 'foo'
-# XXX     #
-# XXX     #   # Create top-level 'foo' stem with display name of 'Foo'
-# XXX     #   stem = JGrouper::Stem.create 'foo', 'Foo'
-# XXX     #
-# XXX     #   # Create 'foo:bar:baz' stem, along with any missing intermediaries
-# XXX     #   stem = JGrouper::Stem.create 'foo:bar:baz'
-# XXX     #
-# XXX     def self.create( name, display_name = nil )
-# XXX       stem = root.add_stem name, display_name
-# XXX       yield stem if block_given?
-# XXX       stem
-# XXX     end
-
     #
     # Find group by name or returns +nil+.
     #
