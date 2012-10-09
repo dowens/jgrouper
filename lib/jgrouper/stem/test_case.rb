@@ -4,7 +4,7 @@ require 'test/unit'
 require 'factory_girl'
 
 
-module JGrouper #: :nodoc:
+module JGrouper # :nodoc:
   #
   # = JGrouper::Stem::TestCase - For testing JGrouper::Stem
   #

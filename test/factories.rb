@@ -4,6 +4,23 @@ require 'factory_girl'
 
 
 FactoryGirl.define do
+  # Groups
+  factory :grouper_wheel_group, class: OpenStruct do
+    getDisplayName  'Etc:Wheel'
+    getName         'etc:wheel'
+    getTypes        [ 'base' ]
+    getUuid         'etc-wheel-group'
+  end
+
+  factory :wheel_group, class: OpenStruct do
+    json_class   JGrouper::Group
+    display_name 'Etc:Wheel'
+    name         'etc:wheel'
+    types        [ 'base' ]
+    uuid         'etc-wheel-group'
+  end
+
+
   # Group Types
   factory :jgrouper_type, class: OpenStruct do
     json_class JGrouper::GroupType

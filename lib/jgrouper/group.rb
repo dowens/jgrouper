@@ -19,33 +19,35 @@ module JGrouper # :nodoc:
     #   group = JGrouper::Group.find(name)
     #   
     def self.find(name)
-      group = from_grouper GroupFinder.findByName( GrouperSession.startRootSession, name, false ) # XXX How to handle sessions?
+      group = from_grouper GroupFinder.findByName( GrouperSession.startRootSession, name, false ) # How to handle sessions?
       yield group if block_given?
       group
     end
 
-# XXX     #
-# XXX     # Generate JGrouper::Stem instance from JSON by calling +JSON.parse(json_string)+
-# XXX     # 
-# XXX     def self.json_create(json)
-# XXX       new do |stem|
-# XXX         stem.display_name = json['display_name']
-# XXX         stem.name         = json['name']
-# XXX         stem.uuid         = json['uuid']
-# XXX       end
-# XXX     end
-# XXX 
-# XXX     #
-# XXX     # Return JSON representation of JGrouper::Stem instance.
-# XXX     #
-# XXX     def to_json
-# XXX       {
-# XXX         :json_class   => self.class.name,
-# XXX         :display_name => self.display_name,
-# XXX         :name         => self.name,
-# XXX         :uuid         => self.uuid
-# XXX       }.to_json
-# XXX     end
+    #
+    # Generate JGrouper::Group instance from JSON by calling +JSON.parse(json_string)+
+    # 
+    def self.json_create(json)
+      new do |stem|
+        stem.display_name = json['display_name']
+        stem.name         = json['name']
+        stem.types        = json['types']
+        stem.uuid         = json['uuid']
+      end
+    end
+
+    #
+    # Return JSON representation of JGrouper::Group instance.
+    #
+    def to_json
+      {
+        :json_class   => self.class.name,
+        :display_name => self.display_name,
+        :name         => self.name,
+        :types        => self.types,
+        :uuid         => self.uuid
+      }.to_json
+    end
 
     #
     # Return String representation of JGrouper::Group instance.
@@ -59,7 +61,7 @@ module JGrouper # :nodoc:
     def self.from_grouper(grouper)
       return nil if grouper.nil?
       new do |group|
-        group.instance_variable_set :@grouper_group, grouper # XXX Is this even needed?
+        group.instance_variable_set :@grouper_group, grouper # Is this even needed?
 
         group.display_name = grouper.getDisplayName
         group.name         = grouper.getName
