@@ -52,6 +52,7 @@ require_relative 'jgrouper/version'
 #   group = JGrouper::Group.find(name) do |group|
 #     group.display_name # Group display name
 #     group.name         # Group name
+#     group.types        # Array of group type names
 #     group.uuid         # Group UUID
 #   end
 #
@@ -133,5 +134,10 @@ module JGrouper
     ).each { |klass| include_class klass }
   end
 
+end
+
+if __FILE__ == $0
+  JGrouper.home ENV['GROUPER_HOME']
+  puts JGrouper::Group.find('etc:wheel')
 end
 

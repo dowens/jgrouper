@@ -3,8 +3,8 @@ JGrouper To Do
 
 JGrouper v0.0.5
 ---------------
-* Add *JGrouper::Group#types*
 * Add *JGrouper::Group#add_type*
+* Add *JGrouper::Group#delete_type*
 
 Future
 ------

@@ -41,6 +41,7 @@
   group = JGrouper::Group.find(name) do |group|
     group.display_name # Group display name
     group.name         # Group name
+    group.types        # Array of group type names
     group.uuid         # Group UUID
   end
 

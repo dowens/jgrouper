@@ -3,6 +3,7 @@ JGrouper History
 
 JGrouper v0.0.5
 ---------------
+* Add *JGrouper::Group#types*
 
 2012-10-04 JGrouper v0.0.4
 --------------------------

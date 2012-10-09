@@ -5,6 +5,7 @@ module JGrouper # :nodoc:
   class Group
 
     attr_accessor :display_name, :name, :uuid
+    attr_reader   :types
 
     def initialize
       @grouper_group = nil
@@ -97,9 +98,8 @@ module JGrouper # :nodoc:
     # Return String representation of JGrouper::Group instance.
     #
     def to_s
-      %w( name display_name uuid ).collect { |k| "#{k}=#{ self.send(k) }" }.join(' | ') 
+      %w( name display_name uuid ).collect { |k| "#{k}=#{ self.send(k) }" }.join(' | ') + " | types=#{ types.join(',') }"
     end
-
 
     private
 
@@ -111,6 +111,8 @@ module JGrouper # :nodoc:
         group.display_name = grouper.getDisplayName
         group.name         = grouper.getName
         group.uuid         = grouper.getUuid
+
+        group.instance_variable_set :@types, grouper.getTypes.collect { |t| t.getName }
       end
     end
 
